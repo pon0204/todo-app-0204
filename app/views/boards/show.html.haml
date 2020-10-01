@@ -1,0 +1,45 @@
+-# .article
+-#   - if @article.eyecatch.attached?
+-#     .article_image
+-#       =image_tag @article.eyecatch
+-#   %h1.article_title= @article.title
+-#   .article_detail
+-#     = image_tag @article.user.avatar_image
+-#     %div
+-#       -# - if @article.user.present? #ユーザー登録されていれば
+-#       %p= @article.author_name #ユーザー名を表示 user.rbのメソッド 
+-#       %p= @article.display_created_at
+-#       / article.rbのメソッドを実行 時間の表示
+-#   - if user_signed_in? && current_user.has_written?(@article) #exists記事があるかないか
+-#     .article_detail_actions
+-#       .dropdown
+-#         = image_tag 'actions.svg', class: 'dropbtn'
+-#         .dropdown-content.mini
+-#           = link_to '編集する',edit_article_path(@article)
+-#           = link_to '削除する',article_path(@article), data: { method: 'delete', confirm: '本当に削除してもよろしいですか?' }
+-#           / linktoは基本ゲットリクエストになる. data: { method: 'delete' }これで削除できる confirmで確認画面
+  
+-#   .article_content
+-#     = @article.content
+-#   - if user_signed_in?
+-#     - if current_user.has_liked?(@article)
+-#       .article_heart
+-#         = link_to article_like_path(@article), data: {method: 'delete'} do
+-#           = image_tag 'heart-active.svg'
+-#     - else
+-#       .article_heart
+-#         = link_to article_like_path(@article), data: {method: 'post'} do
+-#           = image_tag 'heart.svg'
+
+-# .article
+-#   %h2 コメント一覧
+-#   - @comments.each do |comment|
+-#     .article_comment
+-#       %p= comment.content
+
+
+-# .container
+-#   =link_to new_article_comment_path(@article) do 
+-#     .btn-secondary
+-#       コメントを追加
+      
