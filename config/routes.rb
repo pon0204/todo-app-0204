@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root to: 'boards#index' #タスク一覧の表示
 
   resources :boards do  #crud機能の作成
-
+  
   end
 end
