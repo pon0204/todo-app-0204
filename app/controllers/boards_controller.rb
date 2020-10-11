@@ -30,7 +30,7 @@ class BoardsController < ApplicationController
 
 private
 def board_params  #フォームの入力内容が回ってくる
-    params.permit(:name, :description) #boardの配列からnameとdescriptionの内容を取得しリターン
+    params.require(:board).permit(:name, :description) #boardの配列からnameとdescriptionの内容を取得しリターン
 end
 
 # .require(:board)
