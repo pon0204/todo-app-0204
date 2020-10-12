@@ -1,1 +1,7 @@
-%h1 こんにちは
+.container
+  %h2 All Boards
+  - @boards.each do|board|
+    = render '/commons/board',board: board
+    / article: articleでeachの情報を部分テンプレートに渡している
+  .card_add
+    = link_to '+ Add new board ', new_board_path 

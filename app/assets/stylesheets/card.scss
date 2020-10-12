@@ -1,0 +1,60 @@
+@import './variables';
+$heart-size: 16px;
+$avatar-size: 32px;
+
+.card {
+  background-color: $base-box-color;
+  margin: 16px auto;
+  cursor: pointer;
+  height: 160px;
+  width: 90%;
+  border-radius: 10px;
+   
+  &_name{
+        font-size: 22px;
+        padding: 16px 16px;
+        display:inline-block;
+    }
+
+  &_detail {
+    cursor: pointer;
+    display: flex;
+    font-size: 10px;
+    margin-left: 15px;
+    img {
+      width: $avatar-size;
+      height: $avatar-size;
+      border-radius: 100%;
+
+    }
+  }
+
+  &_description {
+    padding: 16px 16px;
+    opacity: 0.4;
+  }
+
+}
+
+
+
+.card_add{
+  position: relative;
+  background-color: white;
+  margin: 16px auto;
+  cursor: pointer;
+  height: 160px;
+  width: 90%;
+  border-radius: 10px;
+  border-style: dashed;
+  
+  a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
+    display: block;
+  }
+  
+}  

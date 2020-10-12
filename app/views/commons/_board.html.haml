@@ -1,0 +1,16 @@
+= link_to board_path(board) do
+  .card
+    .card_name
+      = board.name
+    .dropdown
+      = image_tag 'dot.png', class: 'dropbtn'
+      .dropdown-content
+        %p 編集する
+        %p 削除する
+        -# = link_to '編集する',edit_board_path(@board)
+        -# = link_to '削除する',board_path(@board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか?' }
+      / linktoは基本ゲットリクエストになる. data: { method: 'delete' }これで削除できる confirmで確認画面
+    .card_description
+      = board.description
+    .card_detail
+      = image_tag board.user.avatar_image

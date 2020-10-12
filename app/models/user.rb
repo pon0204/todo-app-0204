@@ -23,4 +23,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :boards, dependent: :destroy #複数形記事と紐付け userが削除された場合、記事も削除する
+         has_one :profile, dependent: :destroy  #一つの意味 プロフィールを所有している
+
+         def prepare_profile
+          profile || build_profile #もしカレントユーザーのプロフィールがあったら取得 ||はオアーの分岐
+        end
+        
+        def avatar_image
+          if profile&.avatar&.attached? #アタッチであ風ロードされているかを確認
+            profile.avatar
+          else
+            'default-avatar.png'
+          end
+        end
 end

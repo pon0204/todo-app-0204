@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] #ログインしていないと使用できない様になる
   
   def index
-  
+   @boards = Board.all #タスクを配列にして挿入
   end
 
   def show
@@ -27,6 +27,7 @@ class BoardsController < ApplicationController
         render :new #フォームに戻る
     end
   end
+
 
 private
 def board_params  #フォームの入力内容が回ってくる
