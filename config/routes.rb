@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :boards do  #crud機能の作成
   
   end
+  resource :profile, only: [:show, :edit, :update]
 end
