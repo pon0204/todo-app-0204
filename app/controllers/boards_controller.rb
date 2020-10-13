@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
 
-  # before_action :set_board, only: [:show] #showのアクション前で実施
+  before_action :set_board, only: [:show] #showのアクション前で実施
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] #ログインしていないと使用できない様になる
   
@@ -28,6 +28,25 @@ class BoardsController < ApplicationController
     end
   end
 
+  def edit
+    @board = current_user.boards.find(params[:id]) #ページのidを取得し、インスタンスに変換
+  end
+
+  def update
+    @board = current_user.boards.find(params[:id]) #他人に編集されない様に、current_userを付ける
+   if @board.update(board_params)      #update【値更新】のメソッドがある。フォームの値を指定(params)
+    redirect_to board_path(@board), notice: '更新できました'     #パスを指定して記事のページに飛ぶ
+   else
+    flash.now[:error] = '更新できませんでした' #メッセージの表示
+    render :edit #編集画面に移動
+   end
+end
+
+def destroy
+board = current_user.boards.find(params[:id]) #記事のid取得 @を付けると、viewで表示出来る
+board.destroy! #記事の削除 !はデストロイ失敗した時にエラーがでて処理が止まる。
+redirect_to root_path, notice: '削除に成功しました' #削除後、記事一覧に飛ぶ
+end
 
 private
 def board_params  #フォームの入力内容が回ってくる
@@ -36,7 +55,7 @@ end
 
 # .require(:board)
 
-# def set_board   #以下を各実行前に処理
-#   @board = Board.find(params[:id]) #paramsidでボードののId 記事のボードを取得@boardsに代入 @はビューに渡すため
-# end
+def set_board   #以下を各実行前に処理
+  @board = Board.find(params[:id]) #paramsidでボードののId 記事のボードを取得@boardsに代入 @はビューに渡すため
+end
 end
