@@ -1,6 +1,26 @@
+
+
+
+
+
+
+
+
+
+
+
+
 .board_name
   = @board.name
 .board_description
   = @board.description
   = link_to '編集する',edit_board_path(@board)
   = link_to '削除する',board_path(@board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか?' }
+
+
+.container
+  = link_to new_board_task_path(@board) do
+    .btn-secondary
+      コメントを追加
+
+      

@@ -12,8 +12,6 @@ class BoardsController < ApplicationController
     # @comments = @article.comments
   end
 
- 
-
   def new  #フォームを表示 ログインユーザーをviewに渡す
     @board = current_user.boards.build #ログインしているユーザーを取得し、空の箱を作っている
   end

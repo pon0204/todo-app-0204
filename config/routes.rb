@@ -5,6 +5,17 @@ Rails.application.routes.draw do
 
   resources :boards do  #crud機能の作成
   
+    resources :tasks   #crud機能の作成
   end
+
   resource :profile, only: [:show, :edit, :update]
+
+
 end
+
+
+# ユーザ認証（ログイン、ログアウト）
+# ログインするとボードを作成できる
+# タスクには、タイトル・内容・期限がある
+# タスクはユーザに紐づく
+# # タスクを作成したユーザのみがタスクを追加したり削除できる

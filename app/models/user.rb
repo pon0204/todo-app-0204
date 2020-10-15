@@ -23,6 +23,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :boards, dependent: :destroy #複数形記事と紐付け userが削除された場合、記事も削除する
+         has_many :tasks, dependent: :destroy #複数形記事と紐付け userが削除された場合、記事も削除する
          has_one :profile, dependent: :destroy  #一つの意味 プロフィールを所有している
 
          def prepare_profile
