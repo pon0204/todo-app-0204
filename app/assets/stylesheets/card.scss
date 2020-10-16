@@ -6,32 +6,69 @@ $avatar-size: 32px;
   background-color: $base-box-color;
   margin: 16px auto;
   cursor: pointer;
-  height: 160px;
+  height: 350px;
   width: 90%;
   border-radius: 10px;
+
    
   &_name{
         font-size: 22px;
         padding: 16px 16px;
-        display:inline-block;
     }
 
   &_detail {
     cursor: pointer;
-    display: flex;
     font-size: 10px;
     margin-left: 15px;
+    margin-top: 10px;
+    display: inline-block;
+
     img {
       width: $avatar-size;
       height: $avatar-size;
       border-radius: 100%;
-
+  
     }
   }
 
   &_description {
-    padding: 16px 16px;
+    padding: 0px 16px;
     opacity: 0.4;
+  }
+
+
+  &_eyecatch {
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 95%;
+    }
+  }
+
+
+  &_message{
+    display: flex;
+    float: right;
+
+    p{
+      padding: 16px;
+
+    }
+
+    img{
+      width: 50px;
+      margin-right: 10px;
+    }
+
   }
 
 }
@@ -57,4 +94,6 @@ $avatar-size: 32px;
     display: block;
   }
   
+
+
 }  

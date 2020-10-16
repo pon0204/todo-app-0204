@@ -1,26 +1,35 @@
-
-
-
-
-
-
-
-
-
-
-
-
-.board_name
-  = @board.name
-.board_description
-  = @board.description
-  = link_to '編集する',edit_board_path(@board)
-  = link_to '削除する',board_path(@board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか?' }
-
+-# .card
+-#   - @tasks.each do |task|
+-#     - if task.eyecatch.attached?  #アイキャッチがアップロードされていたら
+-#       .card_image
+-#         = image_tag task.eyecatch
+-#     %p= task.title
+-#     %p= task.content
+-#     %p= task.deadline
+  
+-#   = link_to new_board_task_path(@board) do
+-#     .btn-secondary
+-#       コメントを追加
 
 .container
-  = link_to new_board_task_path(@board) do
-    .btn-secondary
-      コメントを追加
+  %h2 Branket
+  - @tasks.each do|task|
+    = link_to board_path(@board) do
+      .card
+        .card_yohaku
+          　　　
+        .card_eyecatch
+          = image_tag task.eyecatch 
+        .card_name
+          = task.title
+        .card_description
+          = task.content
+        .card_detail
+          = image_tag task.user.avatar_image
+        .card_message
+          %p 23
+          = image_tag 'message.png'
 
+  .card_add
+    = link_to '+ Add new card ', new_board_task_path(@board) 
       
