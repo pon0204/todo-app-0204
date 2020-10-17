@@ -10,6 +10,7 @@ class BoardsController < ApplicationController
 
   def show
     @tasks = @board.tasks
+    @task = Task.find(params[:id])
   end
 
   def new  #フォームを表示 ログインユーザーをviewに渡す
@@ -18,7 +19,6 @@ class BoardsController < ApplicationController
 
   def create #newのフォームの内容を取得し。作成する
     @board = current_user.boards.build(board_params) #フォームの入力内容を@articleに代入
-    binding-pry
     if @board.save #取得できた場合は保存
       redirect_to boards_path, notice: '保存できたよ' #ホームページに戻る(@board)をつけるとタスクidのページにいく
     else
