@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
          def prepare_profile
           profile || build_profile #もしカレントユーザーのプロフィールがあったら取得 ||はオアーの分岐
-        end
+          end
         
         def avatar_image
           if profile&.avatar&.attached? #アタッチであ風ロードされているかを確認

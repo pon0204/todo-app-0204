@@ -2,12 +2,25 @@ class TasksController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] #ログインしていないと使用できない様になる
 
+  def index
+    @tasks = Task.all #タスクを配列にして挿入
+   end
+
 def new
   board = Board.find(params[:board_id]) #boardにBoardのidをfindし、 
   @task = board.tasks.build   # board/board_id/taskをビルド
 end
 
+# /boards/:board_id/tasks/new(.:format)
 
+
+def show
+  # board = Board.find(params[:board_id])
+  # @tasks = board.tasks(params[:id])
+  @tasks = Task.find(params[:id])
+end
+
+# /boards/:board_id/tasks/:id(.:format)
 
 def create
   board = Board.find(params[:board_id])
@@ -20,6 +33,8 @@ def create
   end
 end
 
+
+# /boards/:board_id/tasks(.:format)
 
 private
 def task_params
