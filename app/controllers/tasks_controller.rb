@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all #タスクを配列にして挿入
-   end
+  end
 
 def new
   board = Board.find(params[:board_id]) #boardにBoardのidをfindし、 
@@ -14,11 +14,11 @@ end
 # /boards/:board_id/tasks/new(.:format)
 
 
-def show
-  # board = Board.find(params[:board_id])
-  # @tasks = board.tasks(params[:id])
-  @tasks = Task.find(params[:id])
-end
+
+  def show 
+    @board = Board.find(params[:board_id])
+    @task = @board.tasks.find(params[:id])
+  end
 
 # /boards/:board_id/tasks/:id(.:format)
 
@@ -38,7 +38,7 @@ end
 
 private
 def task_params
-    params.require(:task).permit(:title, :content, :eyecatch, :deadline).merge(user_id: current_user.id)
+    params.require(:task).permit(:title, :content, :eyecatch, :deadline).merge(user_id: current_user.id )
 end
 
 end

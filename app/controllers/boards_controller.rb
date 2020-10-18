@@ -10,7 +10,6 @@ class BoardsController < ApplicationController
 
   def show
     @tasks = @board.tasks
-    @task = Task.find(params[:id])
   end
 
   def new  #フォームを表示 ログインユーザーをviewに渡す
