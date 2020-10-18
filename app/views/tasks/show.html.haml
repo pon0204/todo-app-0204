@@ -1,15 +1,16 @@
 .container
-  %h2 Branket 
-  .task
-    - if @tasks.eyecatch.attached?
-      .task_eyecatch
-        = image_tag @tasks.eyecatch 
-    .task_title
-      = @tasks.title
-    .task_content
-      = @tasks.content
-    .task_message
-      %p 23
-      = image_tag 'message.png'
+  .task_title
+    = @task.title
+    -# .dropdown
+    -#   = image_tag 'dot.png', class: 'dropbtn'
+    -# .dropdown-content
+    -#   = link_to '編集する',edit_board_path(board)
+    -#   = link_to '削除する',board_path(board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか?' }
+  - if @task.eyecatch.attached?
+    .task_eyecatch
+      = image_tag @task.eyecatch 
+  .task_content
+    = @task.content
+
 
  

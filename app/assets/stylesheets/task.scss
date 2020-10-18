@@ -1,0 +1,41 @@
+@import './variables';
+
+$heart-size: 16px;
+$avatar-size: 32px;
+
+.task_title{
+font-weight: bold;
+font-size: 26px;
+margin-bottom: 32px;
+margin-left: 32px;
+}
+
+.task_eyecatch{
+
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 32px;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 90%;
+    }
+}
+
+
+.task_content{
+
+  background-color: $base-box-color;
+  margin: 16px auto;
+  cursor: pointer;
+  height: 350px;
+  width: 90%;
+  border-radius: 10px;
+
+}
