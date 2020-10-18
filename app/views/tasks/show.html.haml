@@ -1,16 +1,14 @@
 .container
   .task_title
     = @task.title
-    -# .dropdown
-    -#   = image_tag 'dot.png', class: 'dropbtn'
-    -# .dropdown-content
-    -#   = link_to '編集する',edit_board_path(board)
-    -#   = link_to '削除する',board_path(board), data: { method: 'delete', confirm: '本当に削除してもよろしいですか?' }
+    .dropdown
+      = image_tag 'dot.png', class: 'dropbtn'
+      .dropdown-content
+        = link_to '編集する',edit_board_task_path(@board,@task)
+        = link_to '削除する',board_task_path(@board,@task), data: { method: 'delete', confirm: '本当に削除してもよろしいですか?' }
   - if @task.eyecatch.attached?
-    .task_eyecatch
+    .card_eyecatch
       = image_tag @task.eyecatch 
   .task_content
     = @task.content
-
-
  
