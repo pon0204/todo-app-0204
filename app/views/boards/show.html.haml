@@ -1,16 +1,3 @@
--# .card
--#   - @tasks.each do |task|
--#     - if task.eyecatch.attached?  #アイキャッチがアップロードされていたら
--#       .card_image
--#         = image_tag task.eyecatch
--#     %p= task.title
--#     %p= task.content
--#     %p= task.deadline
-  
--#   = link_to new_board_task_path(@board) do
--#     .btn-secondary
--#       コメントを追加
-
 .container
   %h2 Branket
   - @tasks.each do|task|
