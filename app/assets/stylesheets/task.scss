@@ -1,11 +1,17 @@
 @import './variables';
 
-$heart-size: 16px;
-$avatar-size: 32px;
+$avatar-size2: 64px;
 
 .task_title{
 font-weight: bold;
 font-size: 26px;
+margin-bottom: 32px;
+margin-left: 32px;
+}
+
+.comment_title{
+  font-weight: bold;
+font-size:16px;
 margin-bottom: 32px;
 margin-left: 32px;
 }
@@ -25,6 +31,8 @@ margin-left: 32px;
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       width: 90%;
+      height:100%;
+      border-radius: 10px;
     }
 }
 
@@ -33,9 +41,34 @@ margin-left: 32px;
 
   background-color: $base-box-color;
   margin: 16px auto;
-  cursor: pointer;
   height: 350px;
   width: 90%;
   border-radius: 10px;
+
+}
+
+.comment{
+
+  display: flex;
+  margin-bottom: 10px;
+
+&_detail {
+  font-size: 10px;
+  margin-left: 15px;
+  margin-top: 10px;
+  display: inline-block;
+
+  img {
+    width: $avatar-size2;
+    height: $avatar-size2;
+    border-radius: 100%;
+
+  }
+}
+
+&_content{
+font-size: 16px;
+  padding: 32px;
+}
 
 }

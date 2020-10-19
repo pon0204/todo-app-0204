@@ -18,6 +18,8 @@
 #
 class Task < ApplicationRecord
   has_one_attached :eyecatch   #画像を一枚アップロード
+  has_many :comments,dependent: :destroy #複数形記事と紐付け userが削除された場合、記事も削除する
   belongs_to :user
   belongs_to :board
+  
 end

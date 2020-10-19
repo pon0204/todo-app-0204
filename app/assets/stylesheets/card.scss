@@ -10,7 +10,6 @@ $avatar-size: 32px;
   width: 90%;
   border-radius: 10px;
 
-   
   &_name{
         font-size: 22px;
         padding: 16px 16px;
@@ -50,7 +49,9 @@ $avatar-size: 32px;
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      width: 95%;
+      width: 90%;
+      height:100%;
+      border-radius: 10px;
     }
   }
 
