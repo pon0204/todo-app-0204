@@ -1,0 +1,8 @@
+.container
+  = form_with(model: @comment, url: task_comments_path(@task), method: 'post', local: true) do |f|
+    %div
+      = f.label :content, 'Content'
+    %div
+      = f.text_area :content, class: 'text'
+
+    = f.submit 'Submit' ,class: 'btn-primary'

@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   resources :boards do  #crud機能の作成
   
     resources :tasks   #crud機能の作成
+
   end
+  
+  resources :tasks do
+    resources :comments, only: [:new, :create]
+  end
+
 
   resource :profile, only: [:show, :edit, :update]
 

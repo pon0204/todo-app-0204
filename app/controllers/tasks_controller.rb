@@ -18,6 +18,8 @@ end
   def show 
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
+    # task = Task.find(params[:task_id])
+    @comments = @task.comments
   end
 
 # /boards/:board_id/tasks/:id(.:format)
@@ -34,8 +36,8 @@ def create
 end
 
 def edit 
-  @board = Board.find(params[:board_id])
-  @task = @board.tasks.find(params[:id])
+  board = Board.find(params[:board_id])
+  @task = board.tasks.find(params[:id])
 end
 
 def update

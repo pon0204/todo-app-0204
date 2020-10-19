@@ -7,8 +7,17 @@
         = link_to '編集する',edit_board_task_path(@board,@task)
         = link_to '削除する',board_task_path(@board,@task), data: { method: 'delete', confirm: '本当に削除してもよろしいですか?' }
   - if @task.eyecatch.attached?
-    .card_eyecatch
+    .task_eyecatch
       = image_tag @task.eyecatch 
   .task_content
     = @task.content
- 
+  .comment_title
+    %h2 Comment
+  - @comments.each do|comment|
+    .comment
+      .comment_detail
+        = image_tag @board.user.avatar_image
+      .comment_content
+        = comment.content
+  .card_add
+    = link_to '+ Add new comment ', new_task_comment_path(@task) 
